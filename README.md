@@ -4,6 +4,8 @@ This is a plugin for the [Glyphs font editor](http://glyphsapp.com/) by Georg Se
 
 ![Show Nodes Outside Paths](Show%20Nodes%20Outside%20Paths.png)
 
+This can be useful if you need to make sure that a node is just inside another path, without zooming in too far.
+
 ### Installation
 
 1. One-click install *Show Nodes Outside Paths* from *Window > Plugin Manager*
