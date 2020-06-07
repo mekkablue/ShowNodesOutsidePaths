@@ -1,4 +1,5 @@
 # encoding: utf-8
+from __future__ import division, print_function, unicode_literals
 
 ###########################################################################################################
 #
@@ -16,13 +17,15 @@ from GlyphsApp import *
 from GlyphsApp.plugins import *
 
 class ShowNodesOutsidePaths(ReporterPlugin):
-
+	
+	@objc.python_method
 	def settings(self):
 		self.menuName = Glyphs.localize({
 			'en': u'Nodes Outside Paths',
 			'de': u'Punkte außerhalb von Pfaden',
 		})
 	
+	@objc.python_method
 	def roundDotForPoint( self, thisPoint, markerWidth ):
 		"""
 		Returns a circle with thisRadius around thisPoint.
@@ -30,6 +33,7 @@ class ShowNodesOutsidePaths(ReporterPlugin):
 		myRect = NSRect( ( thisPoint.x - markerWidth * 0.5, thisPoint.y - markerWidth * 0.5 ), ( markerWidth, markerWidth ) )
 		return NSBezierPath.bezierPathWithOvalInRect_(myRect)
 	
+	@objc.python_method
 	def drawHandleForNode(self, node, sizeFactor=1.0):
 		# calculate handle size:
 		handleSizeIndex = Glyphs.handleSize # user choice in Glyphs > Preferences > User Preferences > Handle Size
@@ -50,7 +54,7 @@ class ShowNodesOutsidePaths(ReporterPlugin):
 		rect.size = NSSize(handleSize, handleSize)
 		return NSBezierPath.bezierPathWithOvalInRect_(rect)
 	
-		
+	@objc.python_method
 	def background(self, layer):
 		if self.getScale() > 0.099:
 			bezierPaths = [p.bezierPath for p in layer.paths]
@@ -72,6 +76,7 @@ class ShowNodesOutsidePaths(ReporterPlugin):
 							handle.setLineWidth_( 5.0 * self.getScale() ** -0.9 )
 							handle.stroke()
 
+	@objc.python_method
 	def __file__(self):
 		"""Please leave this method unchanged"""
 		return __file__
