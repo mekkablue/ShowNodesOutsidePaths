@@ -15,6 +15,7 @@ from __future__ import division, print_function, unicode_literals
 import objc
 from GlyphsApp import *
 from GlyphsApp.plugins import *
+from AppKit import NSRect, NSBezierPath, NSPoint, NSSize, NSColor
 
 class ShowNodesOutsidePaths(ReporterPlugin):
 	
